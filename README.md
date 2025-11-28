@@ -29,6 +29,11 @@ box it expects the following fields (or trait overloads):
 Override `time_type(::MySolver)`, `phase_type(::MySolver)`, etc. if the data
 live behind getters instead of fields.
 
+If your solver already defines its own enums (e.g. `Penguin.Monophasic`), they
+are automatically coerced into `VTKOutputs`' enums as long as the ordering or
+names match. For bespoke naming schemes, override the trait functions above to
+return the corresponding `VTKOutputs.TimeType`/`PhaseType`/`EquationType`.
+
 ## Quick start
 
 ```julia
